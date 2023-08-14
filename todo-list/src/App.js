@@ -4,6 +4,7 @@ import Todolist from "./Components/Todolist";
 import Contact from "./Components/Contact";
 import { Route, Routes } from "react-router-dom";
 import About from "./Components/About";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer />
     </>
   );
 }
