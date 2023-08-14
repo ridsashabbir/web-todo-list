@@ -38,6 +38,7 @@ export default function Todolist() {
   return (
     <div className="container" style={myStyleC}>
       <div style={myStyle} className="container my-4">
+        {/* <style>{body { background-color: '#F5C6EC'; }}</style> */}
         <h1
           style={{
             marginTop: "5%",
