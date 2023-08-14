@@ -35,10 +35,15 @@ export default function Todolist() {
     fontWeight: "bold",
   };
 
+  const myStyleT = {
+    marginLeft: "15%",
+    width: "50%",
+    // fontWeight: "bold",
+    fontSize: "large",
+  };
   return (
     <div className="container" style={myStyleC}>
       <div style={myStyle} className="container my-4">
-        {/* <style>{body { background-color: '#F5C6EC'; }}</style> */}
         <h1
           style={{
             marginTop: "5%",
@@ -54,7 +59,7 @@ export default function Todolist() {
           style={{ marginTop: "0%", marginLeft: "20%", height: "15vh" }}
         >
           <input
-            style={{ padding: "10px" }}
+            style={{ padding: "10px", color: "purple" }}
             type="text"
             value={taskInput}
             placeholder="Enter your Task here"
@@ -65,12 +70,13 @@ export default function Todolist() {
             Add Task
           </button>
         </form>
-
-        <ul>
-          {tasks.map((task, index) => (
-            <div key={index}>{task}</div>
-          ))}
-        </ul>
+        <div className="container" style={myStyleT}>
+          <ul>
+            {tasks.map((task, index) => (
+              <div key={index}>{task}</div>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
