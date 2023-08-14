@@ -38,9 +38,9 @@ export default function Navbar() {
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <button className="btn btn-primary" type="submit">
+            <Link className="btn btn-primary" type="submit" to="/loginsignup">
               Login / Signup
-            </button>
+            </Link>
           </form>
         </div>
       </div>
