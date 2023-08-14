@@ -2,11 +2,13 @@ import React from "react";
 
 export default function Footer() {
   const myStyle = {
-    backgroundColor: "black",
+    backgroundColor: "#461959",
     color: "white",
     padding: "10px 10px",
     textAlign: "center",
     marginTop: "32%",
+    position: "fixed",
+    width: "100%",
   };
 
   return (
