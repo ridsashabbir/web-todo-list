@@ -16,24 +16,61 @@ export default function Todolist() {
     setTaskInput("");
   };
 
-  return (
-    <div>
-      <h1>Todo-List</h1>
-      <form onSubmit={handleTaskSubmit}>
-        <input
-          type="text"
-          value={taskInput}
-          onChange={handleInputChange}
-          required
-        />
-        <button type="submit">Add Task</button>
-      </form>
+  const myStyle = {
+    marginLeft: "25%",
+    border: "1px solid black",
+    width: "50%",
+    padding: "10px",
+    borderRadius: "30px",
+    backgroundColor: "#7A316F",
+  };
+  const myStyleC = {
+    height: "10vh",
+    color: "white",
+  };
+  const myStyleB = {
+    padding: "10px",
+    backgroundColor: "#461959",
+    color: "white",
+    fontWeight: "bold",
+  };
 
-      <ul>
-        {tasks.map((task, index) => (
-          <div key={index}>{task}</div>
-        ))}
-      </ul>
+  return (
+    <div className="container" style={myStyleC}>
+      <div style={myStyle} className="container my-4">
+        <h1
+          style={{
+            marginTop: "5%",
+            marginLeft: "30%",
+            height: "15vh",
+            color: "white",
+          }}
+        >
+          Todo-List
+        </h1>
+        <form
+          onSubmit={handleTaskSubmit}
+          style={{ marginTop: "0%", marginLeft: "20%", height: "15vh" }}
+        >
+          <input
+            style={{ padding: "10px" }}
+            type="text"
+            value={taskInput}
+            placeholder="Enter your Task here"
+            onChange={handleInputChange}
+            required
+          />
+          <button type="submit" className="b mx-3" style={myStyleB}>
+            Add Task
+          </button>
+        </form>
+
+        <ul>
+          {tasks.map((task, index) => (
+            <div key={index}>{task}</div>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
