@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
+    <nav
+      style={{ color: "white", backgroundColor: props.color }}
+      className={`navbar navbar-expand-lg navbar-${props.color} bg-${props.color} `}
+    >
+      <div className="container-fluid" style={{ color: "white" }}>
+        <Link className="navbar-brand" to="/" style={{ color: "white" }}>
           Todo-List
         </Link>
         <button
@@ -22,23 +25,42 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                to="/"
+                style={{ color: "white" }}
+                v
+              >
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <Link className="nav-link" to="/about" style={{ color: "white" }}>
                 About
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contact">
+              <Link
+                className="nav-link"
+                to="/contact"
+                style={{ color: "white" }}
+              >
                 Contact Us
               </Link>
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <Link className="btn btn-primary" type="submit" to="/loginsignup">
+            <Link
+              className="btn "
+              type="submit"
+              to="/loginsignup"
+              style={{
+                backgroundColor: "white",
+                color: "#7A316F",
+                fontWeight: "bold",
+              }}
+            >
               Login / Signup
             </Link>
           </form>

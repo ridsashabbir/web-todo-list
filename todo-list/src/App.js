@@ -10,7 +10,7 @@ import LoginSignup from "./Components/LoginSignup";
 function App() {
   return (
     <>
-      <Navbar />
+      <Navbar color="#461959" />
       <Routes>
         {/* <Route path="/navbar" element={} /> */}
         <Route path="/" element={<Todolist />} />
