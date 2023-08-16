@@ -101,6 +101,9 @@ import React, { useState } from "react";
 export default function Todolist(props) {
   const [taskInput, setTaskInput] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [editIndex, setEditIndex] = useState(-1);
+  const [editedText, setEditedText] = useState("");
+
   const handleInputChange = (e) => {
     setTaskInput(e.target.value);
   };
@@ -163,12 +166,27 @@ export default function Todolist(props) {
   const deleteIconStyle = {
     color: "#FF5733",
     cursor: "pointer",
+    fontSize: "1.3rem",
   };
+
   const inputContainerStyle = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     padding: "20px 0px",
+  };
+  const editIconStyle = {
+    cursor: "pointer",
+    fontSize: "1.5rem",
+    marginLeft: "auto",
+    marginRight: "6px",
+  };
+  const saveEditedTask = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index] = editedText;
+    setTasks(updatedTasks);
+    setEditIndex(-1);
+    setEditedText("");
   };
   return (
     <div style={myStyleC}>
@@ -188,6 +206,7 @@ export default function Todolist(props) {
                 width: "50%",
                 marginLeft: "20px",
                 color: "#7A316F",
+                backgroundColor: "#F8E7E7",
               }}
               required
             />
@@ -196,15 +215,42 @@ export default function Todolist(props) {
             </button>
           </div>
         </form>
+
         <div>
           {tasks.map((task, index) => (
             <div key={index} style={listItemStyle}>
-              <span>{task}</span>
-              <i
-                className="fa-solid fa-trash-can icon-delete"
-                style={deleteIconStyle}
-                onClick={() => deleteItem(index)}
-              ></i>
+              {index === editIndex ? (
+                <>
+                  <input
+                    type="text"
+                    value={editedText}
+                    onChange={(e) => setEditedText(e.target.value)}
+                    style={{ marginRight: "10px" }}
+                  />
+                  <i
+                    className="fa-solid fa-check"
+                    style={editIconStyle}
+                    onClick={() => saveEditedTask(index)}
+                  ></i>
+                </>
+              ) : (
+                <>
+                  <span>{task}</span>
+                  <i
+                    className="fa-solid fa-pencil-square"
+                    style={editIconStyle}
+                    onClick={() => {
+                      setEditIndex(index);
+                      setEditedText(task);
+                    }}
+                  ></i>
+                  <i
+                    className="fa-solid fa-trash-can icon-delete"
+                    style={deleteIconStyle}
+                    onClick={() => deleteItem(index)}
+                  ></i>
+                </>
+              )}
             </div>
           ))}
         </div>
