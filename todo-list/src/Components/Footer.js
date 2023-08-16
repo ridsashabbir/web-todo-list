@@ -6,8 +6,9 @@ export default function Footer() {
     color: "white",
     padding: "10px 10px",
     textAlign: "center",
-    marginTop: "32%",
-    position: "fixed",
+    marginTop: "12%",
+    // position: "fixed",
+    marginBottom: "0%",
     width: "100%",
   };
 

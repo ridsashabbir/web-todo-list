@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "./Footer";
 
 export default function About() {
   const myStyle = {
@@ -63,7 +62,6 @@ export default function About() {
           partner in staying organized and productive.
         </p>
       </div>
-      <Footer />
     </>
   );
 }

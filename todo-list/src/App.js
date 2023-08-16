@@ -12,7 +12,6 @@ function App() {
   return (
     <>
       <Navbar color="#461959" />
-
       <Routes>
         {/* <Route path="/navbar" element={} /> */}
         <Route path="/" element={<Todolist />} />
