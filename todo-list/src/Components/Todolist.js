@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Todolist() {
+export default function Todolist(props) {
   const [taskInput, setTaskInput] = useState("");
   const [tasks, setTasks] = useState([]);
 
@@ -14,6 +14,12 @@ export default function Todolist() {
     if (taskInput.trim() === "") return;
     setTasks([...tasks, taskInput]);
     setTaskInput("");
+  };
+
+  const deleteItem = (key) => {
+    let newListTodo = [...tasks];
+    newListTodo.splice(key, 1);
+    setTasks([...newListTodo]);
   };
 
   const myStyle = {
@@ -35,12 +41,6 @@ export default function Todolist() {
     fontWeight: "bold",
   };
 
-  const myStyleT = {
-    marginLeft: "15%",
-    width: "50%",
-    // fontWeight: "bold",
-    fontSize: "large",
-  };
   return (
     <div className="container" style={myStyleC}>
       <div style={myStyle} className="container my-4">
@@ -70,12 +70,29 @@ export default function Todolist() {
             Add Task
           </button>
         </form>
-        <div className="container" style={myStyleT}>
-          <ul>
+        <div className="container">
+          {/* <ul>
             {tasks.map((task, index) => (
               <div key={index}>{task}</div>
             ))}
-          </ul>
+          </ul> */}
+
+          <li className="list-item">
+            {/* <div> */}
+            {tasks.map((task, index) => (
+              <div key={index}>{task}</div>
+            ))}
+            {/* </div> */}
+
+            <span className="icons">
+              <i
+                className="fa-solid fa-trash-can icon-delete"
+                onClick={(task) => {
+                  deleteItem(task.index);
+                }}
+              ></i>
+            </span>
+          </li>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import "./App.css";
+// import { useState } from "react";
 import Navbar from "./Components/Navbar";
 import Todolist from "./Components/Todolist";
 import Contact from "./Components/Contact";
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <Navbar color="#461959" />
+
       <Routes>
         {/* <Route path="/navbar" element={} /> */}
         <Route path="/" element={<Todolist />} />
