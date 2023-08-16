@@ -78,11 +78,9 @@ export default function Todolist(props) {
           </ul> */}
 
           <li className="list-item">
-            {/* <div> */}
             {tasks.map((task, index) => (
               <div key={index}>{task}</div>
             ))}
-            {/* </div> */}
 
             <span className="icons">
               <i
