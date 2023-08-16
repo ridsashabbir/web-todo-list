@@ -110,9 +110,14 @@ export default function Todolist(props) {
     setTasks([...tasks, taskInput]);
     setTaskInput("");
   };
-  const deleteItem = (index) => {
-    const updatedTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updatedTasks);
+  // const deleteItem = (index) => {
+  //   const updatedTasks = tasks.filter((_, i) => i !== index);
+  //   setTasks(updatedTasks);
+  // };
+  const deleteItem = (key) => {
+    let newListTodo = [...tasks];
+    newListTodo.splice(key, 1);
+    setTasks([...newListTodo]);
   };
   const myStyle = {
     marginLeft: "25%",
@@ -144,7 +149,7 @@ export default function Todolist(props) {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    width: "70%",
+    width: "82%",
     padding: "10px",
     marginBottom: "10px",
     color: "#7A316F",
@@ -153,7 +158,7 @@ export default function Todolist(props) {
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
     marginLeft: "5%",
     marginTop: "5px",
-    backgroundColor: "#F6C6EA",
+    backgroundColor: "#FBDFF0",
   };
   const deleteIconStyle = {
     color: "#FF5733",
