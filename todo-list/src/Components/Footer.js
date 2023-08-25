@@ -8,7 +8,7 @@ export default function Footer() {
     textAlign: "center",
     marginTop: "12%",
     // position: "fixed",
-    marginBottom: "0%",
+    marginBottom: "0px",
     width: "100%",
   };
 
